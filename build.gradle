@@ -1,19 +1,35 @@
+// ✅ CORRECT: plugins block at the very top
 plugins {
     id 'java'
 }
 
+// Project metadata
 group = 'org.example'
 version = '1.0-SNAPSHOT'
 
+// Java version (17)
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+// Dependency sources (Maven Central)
 repositories {
     mavenCentral()
 }
 
+// Dependencies
 dependencies {
+    // Apache Commons Lang
+    implementation 'org.apache.commons:commons-lang3:3.12.0'
+
+    // JUnit for testing
     testImplementation platform('org.junit:junit-bom:5.10.0')
     testImplementation 'org.junit.jupiter:junit-jupiter'
 }
 
+// Test configuration (JUnit 5)
 test {
     useJUnitPlatform()
 }
